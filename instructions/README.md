@@ -86,9 +86,6 @@ When it comes to testing GUIs you often have to document how you tested, and wha
 #### :raising_hand: Implementation Tips
 Here are a few tips to help you out.
 * The GUI is *always* easier to write in parts and test those parts. For example, we created the jframe, ran the program, and slowly started adding components. After we had the look at feel we wanted, we then added the functionality (the listeners).
-  * To design a GUI, you can use a GUI designer, or this is actually a good place for Copilot or other AI Tool. For example, you could have the following prompt. 
-  ``` Create class that extends JPanel. Inside that panel, I want a label that says 'hostname', a text field that is 20 characters long, a button that says 'search'. The search button should be the same length of the text field, and sits under it. The label should be above the text field. The panel should be 200x200 with the components centered. Each component should have a margin of 10 pixels.```
-  * This helps find the java swing awt components but **often has errors**. We then would spend time modifying the provided code, but at least, it gives you a starting point. DO NOT take it as is! Make changes, understand what it is creating. 
 * For a file chooser/dialog, you can use the JFileChooser. This is a common component in Java Swing. Here is an example of our FileChooser.
 ```java
    JFileChooser fileChooser = new JFileChooser();
@@ -121,7 +118,216 @@ By this point, your design has probably changed (very few people have perfect de
 Inside of [Manual](../manual) You will need to build a 'manual' for your application. It presents screenshots of the GUI, and explains how to use the program in a logical manner. Reading this manual one should have a sense of the full features of the program. 
 
 
+## 🤖 Use of LLMs
 
+You may use LLMs extensively for this assignment since GUI layout code is tedious boilerplate. However, **your event handling logic and integration with existing classes must be your own design**.
+
+### What's Different This Time
+
+You will be adding a GUI to an existing application (make sure to copy over the old application code first, commit, and then worok on the gui). LLMs excel at generating Swing/AWT layout code, but you need to understand what they generate and integrate it properly with your backend logic.
+
+### Recommended LLM Usage
+
+#### ✅ **Good Uses:**
+1. **Generating GUI layout code** (panels, labels, buttons, text fields)
+2. **Learning Swing/AWT components** and layout managers
+3. **Troubleshooting layout issues** (components not appearing, sizing problems)
+4. **Understanding event listeners** (ActionListener, MouseListener, etc.)
+5. **Generating unit tests** for your GUI components
+
+#### ❌ **Avoid:**
+- Having AI design how your GUI connects to your backend
+- Copying layout code without understanding it
+- Using AI to write your report or design rationale
+- Letting AI make architectural decisions about MVC structure
+
+### Smart Prompting for This Assignment
+
+#### **For Creating Basic Layouts**
+
+````
+Create a class that extends JPanel. Inside that panel, I want:
+- A label that says 'hostname'
+- A text field that is 20 characters long
+- A button that says 'search'
+
+Layout requirements:
+- The search button should be the same length as the text field
+- The button sits directly under the text field
+- The label should be above the text field
+- The panel should be 200x200 pixels
+- All components should be centered
+- Each component should have a 10 pixel margin
+
+Use appropriate layout managers to achieve this spacing.
+````
+
+**⚠️ IMPORTANT:** This prompt will give you a starting point, but **often has errors**. You MUST:
+- Test the generated code
+- Understand what each line does
+- Modify spacing/sizing to match your needs
+- Fix any layout issues yourself
+
+#### **For Understanding Swing Components**
+
+````
+I'm new to Java Swing and need to understand basic components.
+
+Please explain:
+1. What's the difference between JFrame, JPanel, and JDialog?
+2. When should I use JTextField vs JTextArea?
+3. What are the main layout managers (FlowLayout, BorderLayout, GridLayout, etc.) and when to use each?
+4. How do I add components to a panel?
+5. Show me a minimal example of a window with one button
+
+Keep it simple - I want to understand the basics first.
+````
+
+#### **For Event Handling**
+
+````
+I have a button in my GUI that should trigger an action when clicked. 
+
+Please explain:
+1. What is an ActionListener and how does it work?
+2. How do I attach an ActionListener to a button?
+3. Should I use an anonymous inner class, lambda, or separate class?
+4. How do I get text from a JTextField when the button is clicked?
+5. Show me a simple example of a button that prints text field contents
+
+I want to understand the event-driven programming model.
+````
+
+#### **For Integrating GUI with Existing Code**
+
+````
+I have existing backend classes from previous assignments that handle data processing. Now I need to connect my GUI to them.
+
+My backend has:
+```java
+[paste relevant method signatures]
+```
+
+My GUI has:
+- A text field for user input
+- A button to trigger processing
+- An area to display results
+
+Please explain:
+1. Should my GUI classes directly instantiate backend classes, or use dependency injection?
+2. Where should I handle exceptions from backend methods (GUI layer or backend)?
+3. How do I update GUI components from backend results?
+4. Should GUI event handlers call backend methods directly, or use a controller?
+5. Show me a simple example structure (not full implementation)
+
+Help me understand the architecture, not just write the code.
+````
+
+#### **For Layout Troubleshooting**
+
+````
+I'm having layout issues with my Swing GUI. Here's my code:
+
+```java
+[paste your layout code]
+```
+
+Problems I'm experiencing:
+- [describe what's not working: components not appearing, wrong size, wrong position, etc.]
+
+Please:
+1. Identify what's causing the layout problem
+2. Explain why the current approach isn't working
+3. Suggest what layout manager or constraints to use instead
+4. Show me the corrected code with explanations
+
+Help me understand the layout system, not just fix this instance.
+````
+
+#### **For Making GUIs Responsive**
+
+````
+My GUI works but doesn't resize properly or feels unresponsive.
+
+Please explain:
+1. How do I make components resize appropriately when the window resizes?
+2. Should I use SwingWorker for long-running operations? When?
+3. How do I update GUI components from background threads safely?
+4. What's the Event Dispatch Thread (EDT) and why does it matter?
+5. Show me an example of proper threading for a button that triggers slow processing
+
+I want to understand GUI responsiveness and threading.
+````
+
+#### **For Testing GUI Components**
+
+````
+I need to write tests for my GUI components.
+
+Please explain:
+1. What parts of a GUI should be unit tested vs. manually tested?
+2. How do I test that a button click calls the correct method?
+3. Can I test layout without visually inspecting it?
+4. Show me an example of testing a simple panel with one button
+5. What testing limitations exist for Swing GUIs?
+
+I want realistic expectations about GUI testing.
+````
+
+### Critical Reminders for GUI Code
+
+**NEVER trust AI-generated layout code blindly:**
+- Always run it and see what it produces
+- Component sizing is often wrong
+- Layout managers may not be optimal
+- Spacing/margins need adjustment
+- Colors and fonts may not match your needs
+
+**Common AI mistakes in GUI code:**
+- Using absolute positioning (setLayout(null)) - avoid this!
+- Incorrect layout manager choices
+- Missing pack() or setVisible(true) calls
+- Poor component organization
+- Not handling window closing properly
+
+**Your responsibility:**
+- Understand every line of GUI code
+- Choose appropriate layout managers yourself
+- Ensure your GUI integrates cleanly with backend
+- Handle all edge cases (empty inputs, errors, etc.)
+- Make design decisions about user experience
+
+### GUI Development Workflow
+
+1. **Sketch your GUI on paper** - Know what you want before prompting
+2. **Generate basic layout** - Use AI to create component structure
+3. **Test immediately** - Run and see what it looks like
+4. **Modify and refine** - Fix sizing, spacing, and layout issues
+5. **Add event handling** - Connect buttons/fields to actions
+6. **Integrate with backend** - Connect to your existing classes
+7. **Test edge cases** - Empty inputs, errors, invalid data
+8. **Polish** - Improve look and feel
+
+### Pre-Submission Checklist
+
+- [ ] I understand all GUI layout code (not just copied)
+- [ ] I tested my GUI with various window sizes
+- [ ] I connected GUI properly to my existing backend classes
+- [ ] I handle errors gracefully (show error messages in GUI)
+- [ ] I designed the user experience flow myself
+- [ ] Event handlers connect properly to backend logic
+- [ ] My GUI is responsive (no freezing during operations)
+- [ ] I documented my LLM usage with specific examples
+
+### LLM Disclosure Requirements
+
+Include in your submission:
+1. **What you used AI for** (e.g., "generating initial JPanel layout," "learning ActionListener syntax")
+2. **Example prompts** showing how you used AI
+3. **What you changed** from AI suggestions (this will be significant for GUI code)
+4. **Design decisions AI didn't make** for you (UX flow, backend integration)
+
+**Remember:** AI is great for GUI boilerplate, but the integration architecture and user experience design must be yours. This assignment tests your ability to build a complete application - the GUI is just the front door to your existing design. Also, it is worth noting, AI tends to try to generate the GUI in one giant file. You should not have this! Break up the files into smaller controlled components. 
 
 
 ## Submission
