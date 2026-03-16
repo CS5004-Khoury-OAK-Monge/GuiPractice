@@ -1,6 +1,6 @@
 # GUI Addition - Instructions
 
-For this assignment, you are going to pick one of your previous assignments and add a GUI to it. You can pick Homework 03, 05, or 07, and you will revamp the assignment to follow the MVC design pattern. 
+For this assignment, you are going to pick one of your previous assignments and add a GUI to it. You can pick Homework 03/04, 05/06, or 07/08, and you will revamp the assignment to follow the MVC design pattern. 
 
 "Living with your code" is a common expression used in computer science. It means when you write code you should expect to have to come back to it and work with it again. This assignment is meant to give you a sense of that by having you use the code from your previous assignment, while adding more features to that code base. 
 
@@ -12,16 +12,16 @@ For this assignment, you are going to pick one of your previous assignments and 
 
 ## Instructions
 
-You will need to take a previous assignment (03, 05, or 07) and convert it into the MVC design pattern. Additionally, you will need to add a GUI to the program, which means this assignment is a culmination of everything you learned up until this point. 
+You will need to take a previous assignment (03/04, 05/06, or 07/08) and convert it into the MVC design pattern. Additionally, you will need to add a GUI to the program, which means this assignment is a culmination of everything you learned up until this point. 
 
 Suggested Parts:
-1. Copy your code from the previous assignment into this repository.  
+1. Copy your code from the previous assignment into this repository  
 2. Modify your application making sure you take steps to test each modification *AS YOU MODIFY*. 
 3. Work on designing your GUI. Grading for the GUI will be based on screenshots and the TAs running your program if they don't see obvious tests/clarity in what you are providing. 
 
 
 > [!TIP]
-> We have once again provided a sample working program, that includes both the console and GUI version. This is a very basic GUI for DNInfo, you do not (nor should you) copy the design, but instead use it as a reference for minimum functionality. The weird X and . characters are just because because it is a demo version.
+> We have once again provided a sample working program, that includes both the console and GUI version. This is a very basic GUI for DNInfo, you do not (nor should you) copy the design, but instead use it as a reference for minimum functionality. The weird X and . characters are just because it is a demo version.
 >
 > From the sample_working directory. 
 >
@@ -61,7 +61,7 @@ Before you start writing, it is important to think about design. You DO NOT have
 1. Go to [DesignDocument.md](../DesignDocument.md) and fill out (ONLY) the initial design sections. Make sure to start with the end design of whatever assignment you are modifying! 
 
 > [!TIP]
-> You are free  to use mermaid or any other UML tools you want, just make sure if you are using another UML tool, you properly link the image in the markdown file. See the resources page, for a list of [UML tools](https://github.com/CS5004-khoury-lionelle/Resources?tab=readme-ov-file#uml-design-tools).
+> You are free  to use mermaid or any other UML tools you want, just make sure if you are using another UML tool, you properly link the image in the Markdown file. See the resources page, for a list of [UML tools](https://github.com/CS5004-khoury-oak-monge/Resources?tab=readme-ov-file#uml-design-tools).
 
 
 ### :fire: Task 2: Implement by Test Driven Development
@@ -74,18 +74,18 @@ After your initial design, you should seek to follow the TDD process. This means
 4. Refactor/update  as you go along
 5. Repeat steps 2-4 until you have all the tests passing/fully built program
 
-Note: you often don't know all the tests as you write. As such, it is alright to continue to expand your list. This is where people get stuck on TDD. They think they have to know **all** the tests before they start. You don't. You just need to know the next test, and then at the end you double check you have covered all code paths and have full coverage. 
+Note: you often don't know all the tests as you write. As such, it is alright to continue to expand your list. This is where people get stuck on TDD. They think they have to know **all** the tests before they start. You don't. You just need to know the next test, and then at the end you double-check you have covered all code paths and have full coverage. 
 
 > [!CAUTION]
 > Make sure to commit as you development. The bare minimum commits would be after every test, but you probably will have additional commits especially at the beginning. 
 
 
 #### Testing GUIs
-When it comes to testing GUIs you often have to document how you tested, and what you did. Use the [GuiTestingHistory.md](../GuiTestingHistory.md) document to document including screen shots of your testing.
+When it comes to testing GUIs you often have to document how you tested, and what you did. Use the [GuiTestingHistory.md](../GuiTestingHistory.md) document to document including screenshots of your testing.
 
 #### :raising_hand: Implementation Tips
 Here are a few tips to help you out.
-* The GUI is *always* easier to write in parts and test those parts. For example, we created the jframe, ran the program, and slowly started adding components. After we had the look at feel we wanted, we then added the functionality (the listeners).
+* The GUI is *always* easier to write in parts and test those parts. For example, we created the JFrame, ran the program, and slowly started adding components. After we had the look at feel we wanted, we then added the functionality (the listeners).
 * For a file chooser/dialog, you can use the JFileChooser. This is a common component in Java Swing. Here is an example of our FileChooser.
 ```java
    JFileChooser fileChooser = new JFileChooser();
@@ -105,7 +105,7 @@ Here are a few tips to help you out.
 ```
 
 ### IMPORTANT! 
-HAVE FUN! You can play with features. Maybe you want to use the latitude/ longitude to display a location on a map. You are not limited to the bare minimum for this GUI. While we will only grade making sure you have all the minimum features, you can add more. If you go above and beyond, make sure to document it in the final design document - so that the TAs (and thus instructor) can see it! We also encourage sharing some of your final screen shots in Teams if you add a neat feature you want to share. 
+HAVE FUN! You can play with features. Maybe you want to use the latitude/ longitude to display a location on a map. You are not limited to the bare minimum for this GUI. While we will only grade making sure you have all the minimum features, you can add more. If you go above and beyond, make sure to document it in the final design document - so that the TAs (and thus instructor) can see it! We also encourage sharing some of your final screenshots in Teams if you add a neat feature you want to share (after the "available until date")
 
  
 ### :fire: Task 3: Finish Design Document
@@ -124,7 +124,7 @@ You may use LLMs extensively for this assignment since GUI layout code is tediou
 
 ### What's Different This Time
 
-You will be adding a GUI to an existing application (make sure to copy over the old application code first, commit, and then worok on the gui). LLMs excel at generating Swing/AWT layout code, but you need to understand what they generate and integrate it properly with your backend logic.
+You will be adding a GUI to an existing application (make sure to copy over the old application code first, commit, and then work on the gui). LLMs excel at generating Swing/AWT layout code, but you need to understand what they generate and integrate it properly with your backend logic.
 
 ### Recommended LLM Usage
 
@@ -332,20 +332,20 @@ Include in your submission:
 
 ## Submission
 
-When you are completed, you need to submit your code to gradescope. Go back to Canvas, and click through the link that takes you to the Gradescope assignment. When you submit, you will actually need to pull from your github repository in the dialog that appears. It only pulls the most recent submission, and if you make an update to the repository after you submit, you will need to resubmit to get the latest version in gradescope. 
+When you are completed, you need to submit your code to Gradescope. Go back to Canvas, and click through the link that takes you to the Gradescope assignment. When you submit, you will actually need to pull from your GitHub repository in the dialog that appears. It only pulls the most recent submission, and if you make an update to the repository after you submit, you will need to resubmit to get the latest version in Gradescope. 
 
 
 ## 📝 Grading Rubric
 
 1. Learning (MG)
-   * Code is fully documented using javadoc commenting style
+   * Code is fully documented using JavaDoc commenting style
    * Code has tests well organized for model layer, controller
 2. Approaching (MG)
    * Follows style guidelines (suggestion run style check locally)
    * GuiTestingHistory.md - View has evidence of testing (via screenshots, and documentation on how you tested)
 3. Meets (MG)
-   * README.md is filled out (name, github repo, etc) 
-      * With out the link to your repo, the TAs won't grade the rest!
+   * README.md is filled out (name, GitHub repo, etc) 
+      * Without the link to your repo, the TAs won't grade the rest!
    * DesignDocument (INITIAL) sections are filled out 
    * Manual is so someone can easily use the program, showing screenshots of features.
 4. Exceeds (MG)
@@ -354,7 +354,7 @@ When you are completed, you need to submit your code to gradescope. Go back to C
    * Student uses proper inheritance without duplication 
    * Methods include tests for edge cases in addition to happy path
    * Design document (FINAL) sections are filled out 
-     * The notation needs to be correct, and the TAs will double check the final design
+     * The notation needs to be correct, and the TAs will double-check the final design
      matches the final implementation.
 
 Legend:
@@ -369,5 +369,5 @@ If you need a reminder about the grading policy, please review the syllabus and 
 > [!CAUTION]
 > As this is the last assignment, your submission window between due date and available until date may be shorter! Please take that into account. 
 
-### No Autograder - Still submit to gradescope
+### No Autograder - Still submit to Gradescope
 This assignment has no autograder. As such, you will need to make sure you are following the rubric and the instructions. If you have questions, please ask in the Teams channel. The TAs will grade them as they see them, giving feedback as they go.

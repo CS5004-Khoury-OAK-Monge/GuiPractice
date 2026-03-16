@@ -6,7 +6,7 @@ This document is meant to provide a tool for you to demonstrate the design proce
 
 ## (INITIAL DESIGN): Class Diagram
 
-Place your class diagram below. Make sure you check the file in the browser on github.com to make sure it is rendering correctly. If it is not, you will need to fix it. As a reminder, here is a link to tools that can help you create a class diagram: [Class Resources: Class Design Tools](https://github.com/CS5004-khoury-lionelle/Resources?tab=readme-ov-file#uml-design-tools)
+Place your class diagram below. Make sure you check the file in the browser on github.com to make sure it is rendering correctly. If it is not, you will need to fix it. As a reminder, here is a link to tools that can help you create a class diagram: [Class Resources: Class Design Tools](https://github.com/CS5004-khoury-oak-monge/Resources?tab=readme-ov-file#uml-design-tools)
 
 
 
@@ -14,7 +14,7 @@ Place your class diagram below. Make sure you check the file in the browser on g
 
 ## (INITIAL DESIGN): Tests to Write - Brainstorm
 
-Write a test (in english) that you can picture for the class diagram you have created. This is the brainstorming stage in the TDD process. 
+Write a test (in English) that you can picture for the class diagram you have created. This is the brainstorming stage in the TDD process. 
 
 > [!TIP]
 > As a reminder, this is the TDD process we are following:
@@ -37,7 +37,7 @@ You should feel free to number your brainstorm.
 Go through your completed code, and update your class diagram to reflect the final design. Make sure you check the fil in the browser on github.com to make sure it is rendering correctly. It is normal that the two diagrams don't match! Rarely (though possible) is your initial design perfect. 
 
 > [!WARNING]
-> If you resubmit your assignment for manual grading, this is a section that often needs updating. You should double check with every resubmit to make sure it is up to date.
+> If you resubmit your assignment for manual grading, this is a section that often needs updating. You should double-check with every resubmit to make sure it is up to date.
 
 
 
